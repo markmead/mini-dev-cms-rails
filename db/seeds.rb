@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Page.delete_all
+ActiveRecord::Base.connection.reset_pk_sequence!('pages')
+
+Page.create! title: 'Base', template: 'base', content: { body: 'This is using the base template' }
+Page.create! title: 'Padded', template: 'padded', content: { body: 'This is using the template' }
+Page.create! title: 'About', template: 'padded', content: { body: 'Hey my name is Mark', twitter: 'https://twitter.com/itsmarkmead' }

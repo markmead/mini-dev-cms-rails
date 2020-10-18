@@ -1,12 +1,20 @@
-<% 10.times do %>
-  <hr>
-<% end %>
-<h1>
-  <%= @page.title %>
-</h1>
-<h2>Padded</h2>
+<div>Padded</div>
 
-<%= @page.content %>
-<% 10.times do %>
-  <hr>
+<% 5.times do %>
+  <br>
+<% end %>
+
+<h1><%= @page.title %></h1>
+
+<%= page_content[:body] %>
+
+<hr>
+
+<% page_content.each do |k,v| %>
+  <div>
+    <p>
+      <strong><%= k %></strong>
+      <%= v %>
+    </p>
+  </div>
 <% end %>
